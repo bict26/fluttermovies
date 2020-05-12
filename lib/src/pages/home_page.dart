@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttermovie/src/providers/pelicula_provider.dart';
+import 'package:fluttermovie/src/search/search_delegate.dart';
 import 'package:fluttermovie/src/widgets/card_swiper_widget.dart';
 import 'package:fluttermovie/src/widgets/movie_horizontal.dart';
 
@@ -15,13 +16,16 @@ class HomePage extends StatelessWidget {
 
     return  Scaffold(
       backgroundColor: Colors.black,
-      appBar: AppBar(centerTitle: true, 
-                    title: Text("Películas en cines"),
-                    backgroundColor: Colors.black,
-                    elevation: 15.0,
-                    actions: <Widget>[
-                      IconButton(icon: Icon(CupertinoIcons.search), onPressed: (){})
-                    ],),
+      appBar: AppBar(centerTitle: true,
+        title: Text("Películas en cines"),
+        backgroundColor: Colors.black,
+        elevation: 15.0,
+        actions: <Widget>[
+        IconButton(icon: Icon(CupertinoIcons.search),
+            onPressed: (){
+              showSearch(context: context, delegate: SearchDelegateData());
+            })
+        ],),
 
       body: Container(
         child: Column(
